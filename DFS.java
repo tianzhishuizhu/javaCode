@@ -1,7 +1,7 @@
 
 /*
- * BFS.java
- * breadth first search in binary tree
+ * DFS.java
+ * depth first search in binary tree
  * */
 
 import java.util.LinkedHashSet;
@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
-public class Breadth {
+public class Depth {
 	public static void main(String[] args) {
 		Graph graph = new Graph(8);
 		
@@ -62,31 +62,6 @@ class Graph {
 	// add an edge m->n to graph
 	public void addEdge(int m, int n) {
 		list[m].add(n);
-	}
-	
-	public void BFS(int start) {
-		Queue<Integer> queue = new PriorityQueue<Integer>();
-		Set<Integer> set = new LinkedHashSet<>(); 
-		
-		set.add(start); // visit the head
-		flag[start] = true;
-		
-		int cur;
-		int adj;
-		queue.add(start);
-		while (queue.isEmpty() == false) {
-			cur = queue.remove(); // fetch and remove the head
-			for (int i = 0; i < list[cur].size(); i++) {
-				adj = list[cur].get(i);
-				if (flag[adj] == false) {
-					set.add(adj); // visit adj
-					flag[adj] = true;
-					queue.add(adj); // add to queue
-				}
-			}
-		}
-		
-		System.out.println(set);
 	}
 	
 	public void DFS(int cur) {
